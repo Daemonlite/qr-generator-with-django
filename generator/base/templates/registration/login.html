@@ -1,0 +1,42 @@
+{% extends 'base/main.html' %}
+{% block title %}Login{% endblock title %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<style>
+  form {
+        padding-top: 10px !important;
+        display: block;
+        margin-left: 20px;
+
+}
+.alert-success{
+  margin-left: 20px;
+ width: 50%;
+}
+
+
+</style>
+
+<body>
+    
+    <div class="container-fluid">
+        <br>
+        <div class="alert alert-success" role="alert">
+         <h1>Login</h1>
+       </div>
+       <form method="post">
+         
+         <div class="form-group  ">
+             {% csrf_token %}
+             {{form|crispy}}
+         </div>
+       
+         <button type="submit" class="btn btn-primary" id="login">Submit</button>
+        <p> do not have an account <a class="button secondaryAction"  href="{% url 'sign_up' %}">signup </a></p>
+       </form>
+    </div>
+</body>
+ 
+
+{% endblock content %}
